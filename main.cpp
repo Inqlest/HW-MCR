@@ -1,6 +1,6 @@
 #define MODE 1
 #include <iostream>
-
+#if MODE == 1
 void add(){
     int x(0), y(0);
     std::cout << "Введите x" << std::endl;
@@ -9,10 +9,11 @@ void add(){
     std::cin >> y;
     std::cout << "Результат сложения "<<x + y;
 }
+#endif
 
 int main(){
 #ifndef MODE
-std::cout <<"MODE не определен" << std::endl;
+#error "MODE не определен"
 #endif
 #if MODE == 0
     std::cout << "Работаю в режиме тренировки" << std::endl;
